@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/person_test'
-PersonTest::CLI.new.call
+require './lib/environment'
+PersonTest.new.call
 
 # the idea is to have a class call CLI that can instantiate and calla method on it and shoukd be all we need o start program
 # bin/person_test loads main 'lib' of 'lib/person_test'

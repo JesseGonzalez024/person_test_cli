@@ -39,5 +39,24 @@ add custom errors
 upon displaying question, a board must be created with each answer. and allowing answer selection.
 beacuse of potential lack of space a 'return' option should be available to return question. 
 
+*** what is a question? **
+- must contain the asking sentence
+- contain 4 possible answers
+- each answer storing a hidden character behind it
+- each questions must collect the answer and store it to it's matching character
+
+
+*** What am I scraping? **
+- Questions
+- Answers
+- Both must be available for mass assignment, in order to let the following question and answer take it's place.
+
+*** Answers **
+# "7642" - Michael Scott
+# "7643" - Dwight Schrute
+# "7644" - Jim Halpert
+# "7645" - Kelly Kapoor
+# "7646" - Meredith Palmer
+# "7647" - Angela Martin
 
 
