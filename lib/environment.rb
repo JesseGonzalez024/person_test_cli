@@ -4,6 +4,7 @@ require 'pry'
 
 require_relative './person_test/cli'
 require_relative './person_test/scraper'
+require_relative './person_test/question'
 
 
 # this file wokrs as an evironment file, in which the person_test requires this file (lib/person_test) and this page afterwards 'requires all other dependesies like CLI.rb class and'

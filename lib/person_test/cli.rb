@@ -1,6 +1,6 @@
 #Our CLI controller, responsible for user interactions
 
-class PersonTest::CLI
+class PersonTest
     
     
     def call
@@ -27,13 +27,13 @@ Your test is now starting #{@user_name}..."
 end
     
     def tester
-        @character_hash = {
-            michael => [name: "Michael Scott", counter: 0, digit: "7642"]
-            dwight => [name: "Dwight Schrute", counter: 0, digit: "7643"]
-            jim => [name: "Jim Halpert", counter: 0, digit: "7644"]
-            kelly => [name: "Kelly Kapoor", counter: 0, digit: "7645"]
-            meredith => [name: "Meredith Palmer", counter: 0, digit: "7647"]
-            angela => [name: "Angela Martin", counter: 0, digit: "7648"]
+        character_hash = {
+            michael: [name: "Michael Scott", counter: 0, digit: "7642"],
+            dwight: [name: "Dwight Schrute", counter: 0, digit: "7643"],
+            jim: [name: "Jim Halpert", counter: 0, digit: "7644"],
+            kelly: [name: "Kelly Kapoor", counter: 0, digit: "7645"],
+            meredith: [name: "Meredith Palmer", counter: 0, digit: "7647"],
+            angela: [name: "Angela Martin", counter: 0, digit: "7648"]
         }
         
         while input != 'exit'
@@ -42,23 +42,23 @@ end
             #display questions
             #display answers
             
-            input = gets.chomp
-            case input
-                if input == #if user input matches an answer saved under a character (7642)
-                    hash[:michael][:counter] += 1
-                if input == (7643)
-                    hash[:dwight][:counter] += 1
-                if input == (7644)
-                    hash[:jim][:counter] += 1
-                if input == (7645)
-                    hash[:kelly][:counter] += 1
-                if input == (7646)
-                    hash[:meredith][:counter] += 1
-                if input == (7647)
-                    hash[:angela][:counter] += 1
-                else
-                    puts "Please type a number based on the answers listed."
-                end
+            # input = gets.chomp
+            # case input
+            #     if input == #if user input matches an answer saved under a character (7642)
+            #         hash[:michael][:counter] += 1
+            #     if input == (7643)
+            #         hash[:dwight][:counter] += 1
+            #     if input == (7644)
+            #         hash[:jim][:counter] += 1
+            #     if input == (7645)
+            #         hash[:kelly][:counter] += 1
+            #     if input == (7646)
+            #         hash[:meredith][:counter] += 1
+            #     if input == (7647)
+            #         hash[:angela][:counter] += 1
+            #     else
+            #         puts "Please type a number based on the answers listed."
+            #     end
             end
         
         
@@ -73,4 +73,3 @@ end
 
 
 end
-PersonTest.new.call

@@ -20,11 +20,9 @@ a.each do |a|
         hash[:q].push(questions)
   
   
-        binding.pry      
-        answers = a.css("button .answer-btn").text
+        answers = a.css("button.answer-btn").collect {|x| x.text}
         hash[:a].push(answers)
-        
-
+        binding.pry
 end
 
 
