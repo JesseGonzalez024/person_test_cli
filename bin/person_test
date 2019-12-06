@@ -4,6 +4,7 @@ require './lib/environment'
 
 PersonTest.new.call
 
+
 # The idea is to have a class called CLI.
 # When CLI object is instantiad along with a specific method, the program can run.
 # This file serves as an execution point for the entire program "executable"
