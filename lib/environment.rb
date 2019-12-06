@@ -2,11 +2,15 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
-require_relative './person_test/cli'
-require_relative './person_test/scraper'
 require_relative './person_test/question'
+require_relative './person_test/scraper'
+require_relative './person_test/cli'
 
 
-# this file wokrs as an evironment file, in which the person_test requires this file (lib/person_test) and this page afterwards 'requires all other dependesies like CLI.rb class and'
-# direclty connected and required by bin/person_test
-# bin/person_test will first run and requires THIS file as the environment file, which connects to all other methods.
+
+# This file works as an evironment file. The person_test(executable) requires 
+# FIRST this file(enviorment) therefore first loading all the files and then afterwards running the commans in the executable file. 
+# The purpose of this page is to require all the dependecy files (cli/scraper/question)
+
+
+# This file(enviorment) is directly connected to lib/person_test (executable) file.

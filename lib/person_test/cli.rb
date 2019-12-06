@@ -11,23 +11,22 @@ class PersonTest
     end
     
     def greeting
-        # #allows name/ collects name and greets user by name
+        #A llows name/ collects name and greets user by name
         puts "Welcome to The Office personality test!"
         sleep(2)
         puts "Which Office character do you most resemble?"
         sleep(2)
         puts "Find out!"
-        sleep(2)
+        sleep(1)
         puts "Please enter your name..."
         @user_name = gets.chomp
         puts "
         
 Your test is now starting #{@user_name}..."
-        puts 'You may also type "exit" at any time'
-end
+    end
     
     def tester
-        character_hash = {
+        character = {
             michael: [name: "Michael Scott", counter: 0, digit: "7642"],
             dwight: [name: "Dwight Schrute", counter: 0, digit: "7643"],
             jim: [name: "Jim Halpert", counter: 0, digit: "7644"],
@@ -36,35 +35,45 @@ end
             angela: [name: "Angela Martin", counter: 0, digit: "7648"]
         }
         
-        while input != 'exit'
-            puts "Please type in the number of your answer"
-            
-            #display questions
-            #display answers
-            
-            # input = gets.chomp
-            # case input
-            #     if input == #if user input matches an answer saved under a character (7642)
-            #         hash[:michael][:counter] += 1
-            #     if input == (7643)
-            #         hash[:dwight][:counter] += 1
-            #     if input == (7644)
-            #         hash[:jim][:counter] += 1
-            #     if input == (7645)
-            #         hash[:kelly][:counter] += 1
-            #     if input == (7646)
-            #         hash[:meredith][:counter] += 1
-            #     if input == (7647)
-            #         hash[:angela][:counter] += 1
-            #     else
-            #         puts "Please type a number based on the answers listed."
-            #     end
-            end
+        puts "Please type in the number of your answer"
+        puts 'You may also type "exit" at any time'
+        puts " "
         
-        
-        #accepts answers
-        #saves answer
+        Scraper.new 
+        Question.all.each_with_index do |question, index|
+            puts " "
+            puts "#{index += 1 }.  #{question.title}"
+            puts " "
+            answers  = question.answers.each_with_index do |answer, index|
+                puts "#{index + 1}. #{answer.title}"
+                        end   
+                        input = gets.chomp
+                        result = input.to_i - 1
+                            
+                            #binding.pry
+                            if answers[result].id == "7642"
+                                character[:michael][:counter] + 1
+
+                            elsif answers[result].id == "7643"
+                                character[:dwight][:counter] + 1
+
+                            elsif answers[result].id == "7644"
+                                character[:jim][:counter] + 1
+                            
+                            elsif answers[result].id == "7645"
+                                character[:kelly][:counter] + 1
+
+                            elsif answers[result].id == "7646"
+                                character[:meredith][:counter] + 1
+
+                            elsif answers[result].id == "7647"
+                                character[:angela][:counter] + 1
+                            end
+                    end
     end
+    
+    
+    
     def results
         # calculates majority of answers
         # compares answers to chacter profiles

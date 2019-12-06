@@ -1,9 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
-
-require_relative '../person_test/cli'
-require_relative '../person_test/question'
 
 class Scraper
     
@@ -23,31 +17,19 @@ class Scraper
                 a.title = answer.text.gsub("\n", "")
                 a.id = answer.attribute("data-resultid").value
                 q.answers << a
+            
+                
             end
-           
         end
+
     end
 
-        
-
-        
-            
-    # scrape all possible questions and answers. answers belong to question object. each question has a series of answers. answers class belongs to paticular question object.   
-    #answer has id attribute
-    
-    #instantiate a new question object/ save the value of object, 
-
-     # Call upon setter methods for 
-     # questions are going to be their own object/ answers attributes
-     # add a question objext file, defines the attributes
-
-        
-        
-    #     end
-    #     # be able to call this line of code: Question.all (=the 35 questions)
-   
-  
-
-
+      
+    # Attempt to scrap all sought after data once. Avoid scraping multiple times. 
+    # All written out questions belong to the Question object class. 
+    # All answers are attributes of each Question object insatnce and therefore "belonging". 
+    # Each Question instance has 4 answers. Answers are attributes.  
+    # Each Answer has an ID attribute.
+    # When Question.all is called all 35 questions must be stored. Along with their 4 Answer attributes.
 
 end

@@ -1,29 +1,6 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
-
-url = 'https://www.thequiz.com/take-the-office-quiz-and-well-reveal-which-character-youre-most-like/'
-
- 
-html = Nokogiri::HTML(open(url))
-a = [] 
-hash = {q: [], a: []}
-
-html.css(".w-question").each do |x|
-   a << x
-end
-  
-
-a.each do |a|
-        
-        questions = a.css(".question-title").text
-        hash[:q].push(questions)
-  
-  
-        answers = a.css("button.answer-btn").collect {|x| x.text}
-        hash[:a].push(answers)
-        binding.pry
-end
+require_relative './person_test/cli'
+require_relative './person_test/scraper'
+require_relative './person_test/question'
 
 
 
@@ -33,4 +10,6 @@ end
 
 
 
-#                      ruby lib/tester.rb
+
+
+      #     ruby lib/tester.rb

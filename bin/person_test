@@ -1,13 +1,9 @@
 #!/usr/bin/env ruby
 
 require './lib/environment'
-#PersonTest.new.call
-Scraper.new
 
-binding.pry
+PersonTest.new.call
 
-# the idea is to have a class call CLI that can instantiate and calla method on it and shoukd be all we need o start program
-# bin/person_test loads main 'lib' of 'lib/person_test'
-# this file serves as an execution point/ "executable"
-# this is the file people are running
-# anything that needs an environment utalize the 'require lib/person_test'
+# The idea is to have a class called CLI.
+# When CLI object is instantiad along with a specific method, the program can run.
+# This file serves as an execution point for the entire program "executable"
