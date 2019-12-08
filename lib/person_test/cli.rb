@@ -2,8 +2,8 @@
 
 class PersonTest
     def call
-        greeting
-        sleep(1)
+        # greeting
+        # sleep(1)
         tester
         winner_results
     end
@@ -20,10 +20,10 @@ class PersonTest
 Your test is now starting #{@user_name}..."
     end
     def tester
-        puts " "
-        sleep(2)
-        puts "Please type in the number of your answer (1-4)"
-        puts " "
+        # puts " "
+        # sleep(2)
+        # puts "Please type in the number of your answer (1-4)"
+        # puts " "
         
         Scraper.new
         game = Game.new

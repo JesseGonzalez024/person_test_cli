@@ -17,22 +17,39 @@ class Game
                 puts "##{question_counter + 1}. #{Question.all[question_counter].title}"
                 puts " "
                 @answers = Question.all[question_counter].display_answers
+                #binding.pry
                 puts " "
                 user_input = gets.to_i
                 
-                if valid_entry? (user_input)
+# Question ouputs, answers ouputs, recieves user input/ 
+# if user input is valid?() continue loop
+# if/else/unless the user input is invalid? #valid_entry?() == false unless valid_entry == true
+# returns previous question/ returns previous set of answers/ request user input untill valid_entry == true
+
+
+
+
+                if valid? (user_input)
                     counting (user_input)
                 else
-                    until valid_entry?(user_input) == true                                                 
+                    unless valid?(user_input) == true                                                 
+                        puts "##{question_counter + 1}. #{Question.all[question_counter].title}"
+                        puts " "
+                        @answers = Question.all[question_counter].display_answers
+                        #binding.pry
+                        puts " "
+                        user_input = gets.to_i
+                        puts " "
                     end    
                 end
                 question_counter += 1
-            end  
+            end
+            binding.pry  
     end
 
     #----------------------------------------------------------------------------------------------------------------
 
-    def valid_entry?(user_input)
+    def valid?(user_input)
         if (1..4).any? {|num| num == user_input.to_i}
             true
         else
@@ -57,9 +74,12 @@ class Game
 
         elsif @answers[result].id == "7645"
             CHARACTERS[3].counter += 1
+        
+        elsif @answers[result].id == "7646"
+            CHARACTERS[4].counter += 1
 
         elsif @answers[result].id == "7647"
-            CHARACTERS[4].counter += 1
+            CHARACTERS[5].counter += 1
         end               
     end
 
