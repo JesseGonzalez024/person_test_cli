@@ -3,10 +3,11 @@
 class PersonTest
     
     def call
-        greeting
-        sleep(1)
+        # greeting
+        # sleep(1)
         tester
-        results
+        binding.pry
+        #results
     end
     
     def greeting
@@ -25,75 +26,60 @@ Your test is now starting #{@user_name}..."
     end
     
     def tester
-        @character = {
-            michael: {name: "Michael Scott", counter: 0, digit: "7642"},
-            dwight: {name: "Dwight Schrute", counter: 0, digit: "7643"},
-            jim: {name: "Jim Halpert", counter: 0, digit: "7644"},
-            kelly: {name: "Kelly Kapoor", counter: 0, digit: "7645"},
-            meredith: {name: "Meredith Palmer", counter: 0, digit: "7647"},
-            angela: {name: "Angela Martin", counter: 0, digit: "7648"}
-        }
+        
+        michael = Character.new("Michael Scott", 0, "7642")
+        dwight = Character.new("Dwight Schrute", 0, "7643")
+        jim = Character.new("Jim Halpert", 0, "7644")
+        kelly = Character.new("Kelly Kapoor", 0, "7645")
+        meredith = Character.new("Meredith Palmer", 0, "7647")
+        angela = Character.new("Angela Martin", 0, "7648")
         
         puts "Please type in the number of your answer"
         puts 'You may also type "exit" at any time'
         puts " "
-    
-        Scraper.new 
+
+        Game.new
+        Scraper.new
+        
         Question.all.each_with_index do |question, index|
             puts " "
             puts "#{index += 1 }.  #{question.title}"
             puts " "
+
+            Game.all << question
+
             answers = question.answers.each_with_index do |answer, index|
-                puts "#{index + 1}. #{answer.title}"
-            end   
-            input = gets.chomp
-                        
-            if input == "exit"
-                puts "Goodbye"
+              puts "#{index + 1}. #{answer.title}"   
             end
-                        
-            result = input.to_i - 1
-                        
-            if result == (0..3)
-                if answers[result].id == "7642"
-                    @character[:michael][:counter] += 1
+            
+            input = gets.chomp
 
-                elsif answers[result].id == "7643"
-                    @character[:dwight][:counter] += 1
+            binding.pry
+            
+           
 
-                elsif answers[result].id == "7644"
-                    @character[:jim][:counter] += 1
-                        
-                elsif answers[result].id == "7645"
-                    @character[:kelly][:counter] += 1
+            
 
-                elsif answers[result].id == "7646"
-                    @character[:meredith][:counter] += 1
-
-                elsif answers[result].id == "7647"
-                    @character[:angela][:counter] += 1
-                end
-            else
-                puts "Please input a number 1-4"
-            end   
+            
+            
+            
+            # def results
+            
+            
+            
+            #     puts "Your test is now complete"
+            #     # puts "Calculating."
+            #     # puts "Calculating.."          Simulate Loading/ Thinking response
+            #     # puts "Calculating..."
+            #     # puts "Calculating...."
+            #     puts " "
+            #     puts "#{@user_name}, the Office character you most resemble is: "   #Why wont' name return?
+            #     puts " "
+            #     puts "#{v[:name]}"            #Add Character Bio
+            #     puts " "
+            #     puts "Thanks for playing!"
+            
+            # end
         end
     end
-    
-    
-    
-    def results
-        array = []
-        @character.each do |x, v|
-          array << v[:counter]
-       end
-       winner = array.sort.last
-        @character.select do |k, v|
-            if v[:counter] == winner
-                puts "The Office character you most resemble is: #{v[:name]}"
-            end 
-        end
-        
-    end
-
-
 end
