@@ -5,7 +5,7 @@ class PersonTest
         # greeting
         # sleep(1)
         tester
-        binding.pry
+        #binding.pry
         #results
     end
     def greeting
@@ -21,8 +21,6 @@ class PersonTest
 Your test is now starting #{@user_name}..."
     end
     def tester
-        
-
         puts " "
         sleep(2)
         puts "Please type in the number of your answer"
@@ -31,18 +29,5 @@ Your test is now starting #{@user_name}..."
         
         Scraper.new
         Game.new.start_quiz
-        
-        
-        
-# Question.all.each_with_index do |question, index|
-#     puts " "
-#     puts "#{index += 1 }.  #{question.title}"
-#     puts " "
-#     Game.all << question
-#     answers = question.answers.each_with_index do |answer, index|
-#       puts "#{index + 1}. #{answer.title}"   
-#     end
-#     input = gets.chomp
-  #  binding.pry
     end
 end
