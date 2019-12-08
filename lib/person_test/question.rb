@@ -1,5 +1,3 @@
-#                               ruby lib/person_test/question.rb
-
 
 class Question
     attr_accessor :title, :answers
@@ -14,7 +12,7 @@ class Question
         @@all
     end
 
-    def display_answer
+    def display_answers
         self.answers.each.with_index(1){|answer, idx| puts "#{idx}. #{answer.title}"}
     end
 
@@ -53,6 +51,10 @@ class Character
     end
     def self.find_by_id(id)
         @@all.find {|character| character.id == id}
+    end
+
+    def self.find_winner
+        self.all.max {|x, y| x.counter <=> y.counter}
     end
 end
 

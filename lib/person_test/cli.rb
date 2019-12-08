@@ -2,11 +2,10 @@
 
 class PersonTest
     def call
-        # greeting
-        # sleep(1)
+        greeting
+        sleep(1)
         tester
-        #binding.pry
-        #results
+        winner_results
     end
     def greeting
         puts "Welcome to The Office personality test!"
@@ -23,11 +22,25 @@ Your test is now starting #{@user_name}..."
     def tester
         puts " "
         sleep(2)
-        puts "Please type in the number of your answer"
-        puts 'You may also type "exit" at any time'
+        puts "Please type in the number of your answer (1-4)"
         puts " "
         
         Scraper.new
-        Game.new.start_quiz
+        game = Game.new
+        game.start_quiz
+
+    end
+    def winner_results
+        winner = Character.find_winner
+        puts " "
+        puts "The test is now complete."
+        sleep(1)
+        puts "The Office personality you resemble most is....."
+        puts " "
+        puts " "
+        sleep(2)
+        puts "#{winner.name}!!!"
+        puts " "
+        puts "Thanks for playing #{@user_name}!"
     end
 end
