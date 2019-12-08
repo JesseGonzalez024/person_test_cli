@@ -14,14 +14,18 @@ class Question
         @@all
     end
 
-    def self.choose_question(count)
-        Question.all[count]
+    def display_answer
+        self.answers.each.with_index(1){|answer, idx| puts "#{idx}. #{answer.title}"}
     end
 
+    def self.choose_question(input)
+        Question.all[input]
+    end
 end
 
 class Answer 
     attr_accessor :title, :id
+    
     @@all = []
     
     def initialize
@@ -35,7 +39,9 @@ end
 
 class Character
     attr_accessor :name, :counter, :id
+    
     @@all = []
+    
     def initialize (name, counter, id)
         @name = name
         @counter = counter
@@ -45,7 +51,7 @@ class Character
     def self.all
         @@all
     end
-    def self.find_by_name(id)
+    def self.find_by_id(id)
         @@all.find {|character| character.id == id}
     end
 end
