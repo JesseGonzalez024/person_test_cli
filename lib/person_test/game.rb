@@ -17,34 +17,32 @@ class Game
                 puts "##{question_counter + 1}. #{Question.all[question_counter].title}"
                 puts " "
                 @answers = Question.all[question_counter].display_answers
-                #binding.pry
+                
                 puts " "
                 user_input = gets.to_i
                 
-# Question ouputs, answers ouputs, recieves user input/ 
-# if user input is valid?() continue loop
-# if/else/unless the user input is invalid? #valid_entry?() == false unless valid_entry == true
-# returns previous question/ returns previous set of answers/ request user input untill valid_entry == true
-
-
 
 
                 if valid? (user_input)
-                    counting (user_input)
+                    true
                 else
-                    unless valid?(user_input) == true                                                 
+                    until valid?(user_input) == true                                                 
+                        puts " "
+                        puts "INVALID ENTRY"
+                        puts "Please select a number 1-4"
+                        puts " "
                         puts "##{question_counter + 1}. #{Question.all[question_counter].title}"
                         puts " "
                         @answers = Question.all[question_counter].display_answers
-                        #binding.pry
                         puts " "
                         user_input = gets.to_i
                         puts " "
-                    end    
+                        valid?(user_input)
+                    end   
                 end
                 question_counter += 1
-            end
-            binding.pry  
+                counting(user_input)
+            end  
     end
 
     #----------------------------------------------------------------------------------------------------------------
