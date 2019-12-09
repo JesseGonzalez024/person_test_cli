@@ -17,6 +17,7 @@ class Scraper
                 a.title = answer.text.gsub("\n", "")
                 a.id = answer.attribute("data-resultid").value
                 q.answers << a
+                binding.pry
             
                 
             end
