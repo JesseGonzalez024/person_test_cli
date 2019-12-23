@@ -16,13 +16,12 @@ class Game
                 puts " "
                 puts "##{question_counter + 1}. #{Question.all[question_counter].title}"
                 puts " "
-                @answers = Question.all[question_counter].display_answers
-                
+                @answers = Question.all[question_counter].answer_selector.each.with_index(1) do |answer, idx|
+                            puts "#{idx}. #{answer.text}"
+                        end
                 puts " "
                 user_input = gets.to_i
                 
-
-
                 if valid? (user_input)
                     true
                 else
@@ -33,7 +32,13 @@ class Game
                         puts " "
                         puts "##{question_counter + 1}. #{Question.all[question_counter].title}"
                         puts " "
-                        @answers = Question.all[question_counter].display_answers
+                        Question.all[question_counter].answer_selector.each.with_index(1) do |answer, idx|
+                            puts "#{idx}. #{answer.text}"
+                        end
+                        puts " "
+
+                       # @answers = Question.all[question_counter].display_answers
+                       
                         puts " "
                         user_input = gets.to_i
                         puts " "

@@ -1,4 +1,3 @@
-
 class Scraper
     
     def initialize
@@ -14,15 +13,11 @@ class Scraper
             q.title = section.css(".question-title").text
             section.css("button.answer-btn").each do |answer|
                 a = Answer.new
-                a.title = answer.text.gsub("\n", "")
-                a.id = answer.attribute("data-resultid").value
-                q.answers << a
-                binding.pry
-            
-                
+                a.question = q
+                a.text = answer.text.gsub("\n", "")
+                a.id = answer.attribute("data-resultid").value 
             end
         end
-
     end
 
       
