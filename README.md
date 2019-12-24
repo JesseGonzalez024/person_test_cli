@@ -10,6 +10,25 @@ To run the file, simply run:
 ./bin/person_test
 ```
 
+## Instructions
+On your computer terminal, type in or copy and paste:
+
+```
+git clone https://github.com/JesseGonzalez024/person_test_cli.git
+```
+This loads the directory. Afterwards simply type in:
+
+```
+cd person_test_cli
+```
+
+And finally, to run the code and play the game run in your terminal:
+```
+./bin/person_test
+```
+
+Dont't foget to enjoy!
+
 ## Getting Started
 
 The quickest way to access this CLI program is by cloning the file directly from GitHub where it is stored.
